@@ -19,19 +19,35 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var foo = require( 'compute-dims' );
+var dims = require( 'compute-dims' );
 ```
 
-#### foo( arr )
+#### dims( arr )
 
-What does this function do?
+Computes `array` dimensions, including nested `arrays`.
+
+``` javascript
+var data, d;
+
+data = [ 1, 2 ];
+d = dims( data );
+// returns [ 2 ]
+
+data = [ [1,2], [1,2] ];
+d = dims( data );
+// returns [ 2, 2 ]
+```
+
+If an `array` element has a dimension inconsistent with other elements, the function returns `null`. 
+
+``` javascript
+data = [ [1,2], [1] ];
+d = dims( data );
+// returns null
+```
 
 
 ## Examples
-
-``` javascript
-var foo = require( 'compute-dims' );
-```
 
 To run the example code from the top-level application directory,
 
