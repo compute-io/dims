@@ -54,6 +54,9 @@ d = dims( data, 2 );
 // returns [1,2]
 
 data = [ [[1,2], [3,4,5,6,7,8]] ];
+d = dims( data );
+// returns null
+
 d = dims( data, 2 );
 // returns [1,2]
 ```
