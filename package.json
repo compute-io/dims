@@ -31,12 +31,15 @@
     "utils",
     "dimensions",
     "size",
-    "shape"
+    "shape",
+    "dims"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/dims/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-integer": "^1.0.2"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",

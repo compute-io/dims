@@ -22,7 +22,7 @@ To use the module,
 var dims = require( 'compute-dims' );
 ```
 
-#### dims( arr )
+#### dims( arr[, max] )
 
 Computes `array` dimensions, including nested `arrays`.
 
@@ -31,11 +31,11 @@ var data, d;
 
 data = [ 1, 2 ];
 d = dims( data );
-// returns [ 2 ]
+// returns [2]
 
 data = [ [1,2], [1,2] ];
 d = dims( data );
-// returns [ 2, 2 ]
+// returns [2,2]
 ```
 
 If an `array` element has a dimension inconsistent with other elements, the function returns `null`. 
@@ -44,6 +44,18 @@ If an `array` element has a dimension inconsistent with other elements, the func
 data = [ [1,2], [1] ];
 d = dims( data );
 // returns null
+```
+
+To limit the number of dimensions returned, set the `max` option.
+
+``` javascript
+data = [ [[1,2], [3,4]] ]; // 1x2x2
+d = dims( data, 2 );
+// returns [1,2]
+
+data = [ [[1,2], [3,4,5,6,7,8]] ];
+d = dims( data, 2 );
+// returns [1,2]
 ```
 
 
