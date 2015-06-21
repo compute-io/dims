@@ -38,18 +38,20 @@
     "url": "https://github.com/compute-io/dims/issues"
   },
   "dependencies": {
-    "validate.io-integer": "^1.0.2"
+    "utils-copy": "^1.0.0",
+    "validate.io-array": "^1.0.6",
+    "validate.io-matrix-like": "^1.0.2",
+    "validate.io-ndarray-like": "^1.0.0",
+    "validate.io-positive-integer": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "1.x.x",
-    "mocha": "1.x.x",
+    "chai": "3.x.x",
     "coveralls": "^2.11.1",
-    "istanbul": "^0.3.0"
+    "dstructs-matrix": "^2.0.0",
+    "istanbul": "^0.3.0",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x",
+    "mocha": "2.x.x"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ]
+  "license": "MIT"
 }

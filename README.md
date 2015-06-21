@@ -2,7 +2,7 @@ dims
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes array dimensions.
+> Computes dimensions for arrays and matrices.
 
 
 ## Installation
@@ -16,18 +16,19 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
 
 ``` javascript
 var dims = require( 'compute-dims' );
 ```
 
-#### dims( arr[, max] )
+#### dims( x[, max] )
 
-Computes `array` dimensions, including nested `arrays`.
+Computes dimensions of `x`. `x` may be either an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) (including nested `arrays`) or a [`matrix`](https://github.com/dstructs/matrix).
 
 ``` javascript
-var data, d;
+var matrix = require( 'dstructs-matrix' ),
+	data,
+	d;
 
 data = [ 1, 2 ];
 d = dims( data );
@@ -36,9 +37,13 @@ d = dims( data );
 data = [ [1,2], [1,2] ];
 d = dims( data );
 // returns [2,2]
+
+data = matrix( [1,2,3,4], [2,2] )
+d = dims( data );
+// returns [2,2]
 ```
 
-If an `array` element has a dimension inconsistent with other elements, the function returns `null`. 
+If an `array` element has a dimension inconsistent with other elements, the function returns `null`.
 
 ``` javascript
 data = [ [1,2], [1] ];
@@ -59,6 +64,10 @@ d = dims( data );
 
 d = dims( data, 2 );
 // returns [1,2]
+
+data = matrix( [1,2,3,4], [2,2] );
+d = dims( data, 1 );
+// returns [2]
 ```
 
 
@@ -75,7 +84,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -99,16 +108,15 @@ $ make view-cov
 ```
 
 
+---
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
----
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
-
+Copyright &copy; 2014-2015. The [Compute.io](https://github.com/compute-io) Authors.
 
 [npm-image]: http://img.shields.io/npm/v/compute-dims.svg
 [npm-url]: https://npmjs.org/package/compute-dims
