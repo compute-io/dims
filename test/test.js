@@ -5,6 +5,9 @@
 var // Expectation library:
 	chai = require( 'chai' ),
 
+	// Matrix data structure:
+	matrix = require( 'dstructs-matrix' ),
+
 	// Module to be tested:
 	dims = require( './../lib' );
 
@@ -94,6 +97,7 @@ describe( 'compute-dims', function tests() {
 		actual = dims( data );
 
 		assert.deepEqual( actual, expected );
+
 	});
 
 	it( 'should return null if provided an array with inconsistent dimensions', function test() {
@@ -134,6 +138,25 @@ describe( 'compute-dims', function tests() {
 		actual = dims( data, 2 );
 
 		assert.deepEqual( actual, expected );
+
+		data = matrix( [ 1, 2, 3, 4 ], [ 2, 2 ] );
+		expected = [ 2 ];
+		actual = dims( data, 1 );
+
+		assert.deepEqual( actual, expected );
+
+	});
+
+
+	it( 'should compute dimensions for matrices', function test(){
+		var data, expected, actual;
+
+		data = matrix( new Int8Array([1,2,3,4,5,6,7,8,9]), [3,3] );
+		expected = [ 3, 3 ];
+		actual = dims( data );
+
+		assert.deepEqual( actual, expected );
+
 	});
 
 });
